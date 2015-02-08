@@ -6,23 +6,21 @@ class HangpersonGame
     @wrong_guesses = ""
   end
     
+  
   def guess(guess_letter)
     if guess_letter == nil
       raise ArgumentError, "nil string"
-    end
-    if guess_letter.empty? 
+    elsif guess_letter.empty? 
+      raise ArgumentError, "Poor formatting"
+    elsif ! guess_letter.gsub(/[a-zA-Z]/, "").empty?
       raise ArgumentError, "Poor formatting"
     end
-    if ! guess_letter.gsub(/[a-zA-Z]/, "").empty?
-      raise ArgumentError, "Poor formatting"
-    end
-    
     if @word.include? guess_letter
       if ! @guesses.include? guess_letter
         @guesses += guess_letter
         true
       else
-         false
+        false
       end
     else
       if ! @wrong_guesses.include? guess_letter
@@ -53,6 +51,8 @@ class HangpersonGame
       :win
     elsif @wrong_guesses.length >= 7
       :lose
+    else
+      :play
     end
   end
   # add the necessary class methods, attributes, etc. here

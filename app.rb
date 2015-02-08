@@ -68,7 +68,7 @@ class HangpersonApp < Sinatra::Base
     when :lose
       redirect '/lose'
     when :play
-      erb :show, :locals => {:word_with_guesses => @game.word_with_guesses(), :wrong_guesses => @game.wrong_guesses} # You may change/remove this line
+      erb :show, :locals => {:word_with_guesses => @game.word_with_guesses, :wrong_guesses => @game.wrong_guesses} # You may change/remove this line
     end
   end
   

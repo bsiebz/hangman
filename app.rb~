@@ -87,6 +87,7 @@ class HangpersonApp < Sinatra::Base
   
   get '/lose' do
     ### YOUR CODE HERE ###
+    outcome = @game.check_win_or_lose()
     case outcome
     when :play
       redirect '/show'
