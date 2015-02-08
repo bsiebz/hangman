@@ -15,16 +15,17 @@ class HangpersonGame
     elsif ! guess_letter.gsub(/[a-zA-Z]/, "").empty?
       raise ArgumentError, "Poor formatting"
     end
-    if @word.include? guess_letter
-      if ! @guesses.include? guess_letter
-        @guesses += guess_letter
+    guessed = guess_letter.downcase
+    if @word.include? guessed
+      if ! @guesses.include? guessed
+        @guesses += guessed
         true
       else
         false
       end
     else
-      if ! @wrong_guesses.include? guess_letter
-        @wrong_guesses += guess_letter
+      if ! @wrong_guesses.include? guessed
+        @wrong_guesses += guessed
         true
       else
         false

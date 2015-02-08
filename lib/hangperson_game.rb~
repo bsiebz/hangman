@@ -8,6 +8,8 @@ class HangpersonGame
     
   
   def guess(guess_letter)
+    puts word_with_guesses
+    puts @word
     if guess_letter == nil
       raise ArgumentError, "nil string"
     elsif guess_letter.empty? 
