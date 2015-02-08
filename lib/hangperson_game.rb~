@@ -53,8 +53,6 @@ class HangpersonGame
       :win
     elsif @wrong_guesses.length >= 7
       :lose
-    else
-      :play
     end
   end
   # add the necessary class methods, attributes, etc. here
