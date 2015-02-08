@@ -74,12 +74,28 @@ class HangpersonApp < Sinatra::Base
   
   get '/win' do
     ### YOUR CODE HERE ###
-    erb :win, :locals => {:word =>@game.word} # You may change/remove this line
+    outcome = @game.check_win_or_lose()
+    case outcome
+    when :play
+      redirect '/show'
+    when :lose
+      redirect '/lose'
+    else
+      erb :win, :locals => {:word =>@game.word} # You may change/remove this line
+    end
   end
   
   get '/lose' do
     ### YOUR CODE HERE ###
-    erb :lose, :locals => {:word =>@game.word} # You may change/remove this line
+    outcome = @game.check_win_or_lose()
+    case outcome
+    when :play
+      redirect '/show'
+    when :win
+      redirect '/win'
+    else
+      erb :lose, :locals => {:word =>@game.word} # You may change/remove this line
+    end
   end
   
 end
